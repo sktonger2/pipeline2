@@ -17,6 +17,7 @@ pipeline {
                         input 'Continue? '
                      }
                     //gv= load "src/validate.groovy"
+                    echo " ******starting pipeline 2 *********"
                     echo "start time is : $START_DATETIME"
                     echo "end date time is : $SEND_DATETIME"
                     echo "cluster name is: $CLUSTER"
@@ -52,6 +53,7 @@ pipeline {
                 // check the logs of running jobs for each minute and see the logs of last minute is processed
                 // once all processing is done, update the status as successfull 
                 echo 'Monitoring the job....'
+                echo " ******end of pipeline 2 *********"
 
             }
         }
