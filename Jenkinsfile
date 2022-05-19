@@ -1,4 +1,4 @@
-def gv
+//def gv
 pipeline {
     agent any
     parameters{
@@ -31,7 +31,7 @@ pipeline {
             steps{
                 script{
                     echo "start of pipeline 2"
-                    gv= load "src/validate.groovy"
+                   // gv= load "src/validate.groovy"
                 }
             }
         }
@@ -41,7 +41,7 @@ pipeline {
                     // validate parameters are correct
                     // image is available in jfrog
                     echo "start of validaton stage"
-                    gv.validateTime()
+                    //gv.validateTime()
                 }
                 
             }
