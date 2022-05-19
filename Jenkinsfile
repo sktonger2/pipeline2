@@ -1,4 +1,4 @@
-//def gv
+def gv
 pipeline {
     agent any
     parameters{
@@ -8,44 +8,28 @@ pipeline {
         choice(name: 'CLUSTER', choices: ['qe','prod'], description: 'deploy cluster details, it will be deployed in tlb-repair ns')
         
     }
-    environment { 
-        // K8s credentials
-       // KUBECONFIG = credentials('my-kubeconfig')
-        // cluster details
-        //NAMESPACE = ''
-        //CLUSTER = ''
-        //COMMIT_SET= ''
-        //IMAGE_BRANCH_VALUE = ''
-        //IMAGE_TAG_VALUE=''
-        //DOCKER_IMAGE=''
-        //API_JFROG =''
-        //TAGS_REQUEST_URL=''
-        //TAG_CHK =''
-        //VALUES_FILE=''
-
-
-    }
 
     stages {
         stage("init"){
             steps{
                 script{
-                    echo "start of pipeline 2"
-                   // gv= load "src/validate.groovy"
+                    timeout(time: 60, unit: 'SECONDS') {
+                        input 'Continue? '
+                     }
+                    //gv= load "src/validate.groovy"
+                    echo "start time is : $START_DATETIME"
+                    echo "end date time is : $SEND_DATETIME"
+                    echo "cluster name is: $CLUSTER"
+
                 }
             }
         }
         stage('Validate') {
             steps {
-                script{
-                    // validate parameters are correct
-                    // image is available in jfrog
-                    echo "start of validaton stage"
-                    //gv.validateTime()
-                }
-                
+              echo 'in stage validate'
             }
         }
+
         stage('Deploy') {
             steps {
                 // deploy image and create pods
