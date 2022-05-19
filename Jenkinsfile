@@ -5,7 +5,7 @@ pipeline {
         //yyyy-MM-dd HH:mm:ss	2012-01-31 23:59:59
         string(name: 'START_DATETIME', defaultValue: '', description: 'epoch start date time')
         string(name: 'END_DATETIME', defaultValue: '', description: 'epoch end time')
-        choice(name: 'CLUSTER', choices: ['qe','prod'], description: 'deploy cluster details, it will be deployed in tlb-repair ns')
+        string(name: 'CLUSTER', defaultValue: 'qe', description: 'deploy cluster details, it will be deployed in tlb-repair ns')
         
     }
 
