@@ -19,7 +19,7 @@ pipeline {
                     //gv= load "src/validate.groovy"
                     echo " ******starting pipeline 2 *********"
                     echo "start time is : $START_DATETIME"
-                    echo "end date time is : $SEND_DATETIME"
+                    echo "end date time is : $END_DATETIME"
                     echo "cluster name is: $CLUSTER"
 
                 }
