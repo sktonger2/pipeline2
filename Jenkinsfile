@@ -10,7 +10,7 @@ pipeline {
     }
 
     stages {
-        stage("init"){
+        stage("init2"){
             steps{
                 script{
                     timeout(time: 60, unit: 'SECONDS') {
@@ -25,13 +25,13 @@ pipeline {
                 }
             }
         }
-        stage('Validate') {
+        stage('Validate2') {
             steps {
               echo 'in stage validate'
             }
         }
 
-        stage('Deploy') {
+        stage('Deploy2') {
             steps {
                 // deploy image and create pods
                 // once deployment is complete, update publisher-sts with
@@ -48,7 +48,7 @@ pipeline {
                 echo 'Deploying tlb-repair in environment'
             }
         }
-        stage('Monitor') {
+        stage('Monitor2') {
             steps {
                 // check the logs of running jobs for each minute and see the logs of last minute is processed
                 // once all processing is done, update the status as successfull 
