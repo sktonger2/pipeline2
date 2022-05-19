@@ -10,18 +10,18 @@ pipeline {
     }
     environment { 
         // K8s credentials
-        KUBECONFIG = credentials('my-kubeconfig')
+       // KUBECONFIG = credentials('my-kubeconfig')
         // cluster details
-        NAMESPACE = ''
-        CLUSTER = ''
-        COMMIT_SET= ''
-        IMAGE_BRANCH_VALUE = ''
-        IMAGE_TAG_VALUE=''
-        DOCKER_IMAGE=''
-        API_JFROG =''
-        TAGS_REQUEST_URL=''
-        TAG_CHK =''
-        VALUES_FILE=''
+        //NAMESPACE = ''
+        //CLUSTER = ''
+        //COMMIT_SET= ''
+        //IMAGE_BRANCH_VALUE = ''
+        //IMAGE_TAG_VALUE=''
+        //DOCKER_IMAGE=''
+        //API_JFROG =''
+        //TAGS_REQUEST_URL=''
+        //TAG_CHK =''
+        //VALUES_FILE=''
 
 
     }
@@ -30,6 +30,7 @@ pipeline {
         stage("init"){
             steps{
                 script{
+                    echo "start of pipeline 2"
                     gv= load "src/validate.groovy"
                 }
             }
@@ -39,7 +40,7 @@ pipeline {
                 script{
                     // validate parameters are correct
                     // image is available in jfrog
-                    
+                    echo "start of validaton stage"
                     gv.validateTime()
                 }
                 
